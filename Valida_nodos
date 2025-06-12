@@ -1,0 +1,14 @@
+#### Para validación
+
+adj_matrix = nx.to_pandas_adjacency(subG_final, dtype=int)
+
+# La suma por fila + columna debe ser 0 → completamente aislado
+
+suma_total = adj_matrix.sum(axis=0) + adj_matrix.sum(axis=1)
+nodos_no_conectados = suma_total[suma_total == 0].index.tolist()
+
+print(f" Nodos no conectados: {len(nodos_no_conectados)}")
+print(nodos_no_conectados)
+
+
+### Validar que el nodo raiz es "187228"
